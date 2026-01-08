@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Madu Peres | Dev Front-End Jr</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Fira+Code:wght@400;500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+</head>
+
+<body>
+
+    <header id="header">
+        <nav id="navbar">
+            <a href="#home" class="logo"><span>&lt;</span>Madu Peres<span>/&gt;</span></a>
+            <ul class="nav-list">
+                <li><a href="#about">Sobre</a></li>
+                <li><a href="#skills">Habilidades</a></li>
+                <li><a href="#projects">Projetos</a></li>
+                <li><a href="#contact">Contato</a></li>
+            </ul>
+            <button id="mobile-menu-toggle"><i class="fas fa-bars"></i></button>
+        </nav>
+        <div id="mobile-menu">
+            <a href="#about">Sobre</a>
+            <a href="#skills">Habilidades</a>
+            <a href="#projects">Projetos</a>
+            <a href="#contact">Contato</a>
+        </div>
+    </header>
+
+    <main>
+        <section id="home" class="hero-section">
+            <div class="code-bg"> { code: "front-end" } </div>
+            <div class="graphic-element top-left"><i class="fa-solid fa-code"></i></div>
+            <div class="graphic-element bottom-right"><i class="fa-solid fa-laptop-code"></i></div>
+            <div class="graphic-element mid-right"><i class="fa-solid fa-terminal"></i></div>
+
+            <div class="content">
+                <h1>Olá, eu sou <span class="highlight">Madu Peres</span>.</h1>
+                <p id="typewriter-text"></p>
+                <div class="hero-btns">
+                    <a href="#projects" class="btn primary-btn">Ver Projetos <i class="fas fa-arrow-right"></i></a>
+                    <a href="https://github.com/maduaperes" target="_blank" class="btn secondary-btn"><i
+                            class="fab fa-github"></i> GitHub</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="animated-section">
+            <div class="about-container">
+                <div class="about-text">
+                    <h2>Sobre Mim</h2>
+                    <p>Sabe aquela sensação de ver uma ideia saindo do papel e ganhando vida? É isso que me move. Minha
+                        história com a tecnologia não começou apenas com códigos, mas com o fascínio de entender como eu
+                        poderia usar uma tela para facilitar a vida de alguém.</p>
+
+                    <p>Acredito que por trás de cada site existe um sonho, um negócio ou uma história que merece ser
+                        contada com cuidado. Por isso, como <strong>Desenvolvedora Front-end</strong>, meu trabalho não
+                        é só "montar páginas", mas sim criar um lugar acolhedor na internet para o seu projeto, onde
+                        tudo funciona direitinho e o design agrada aos olhos.</p>
+
+                    <p>Sou de Sorocaba, adoro um bom desafio e coloco um pouquinho de dedicação em cada detalhe que faço
+                        — desde a escolha de uma cor até o ajuste para que o site fique perfeito no celular. Se você
+                        busca alguém que vai cuidar do seu projeto com o mesmo carinho que você cuida da sua empresa,
+                        vamos bater um papo?</p>
+                </div>
+                <div class="profile-pic">
+                    <div class="window-dot-red"></div>
+                    <div class="window-dot-yellow"></div>
+                    <div class="window-dot-green"></div>
+                    <img src="img/me.jpeg" alt="Madu Peres">
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="animated-section">
+            <h2>Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-item"><i class="fab fa-html5"></i>
+                    <h3>HTML5</h3>
+                </div>
+                <div class="skill-item"><i class="fab fa-css3-alt"></i>
+                    <h3>CSS3</h3>
+                </div>
+                <div class="skill-item"><i class="fab fa-js"></i>
+                    <h3>JavaScript</h3>
+                </div>
+                <div class="skill-item"><i class="fa-solid fa-mobile-screen-button"></i>
+                    <h3>Responsive</h3>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="animated-section">
+            <h2>Projetos & Serviços</h2>
+            <div class="projects-grid">
+
+                <div class="project-card service-highlight">
+                    <div class="project-img">
+                        <div class="badge">Pronta para Uso</div>
+                        <img src="img/PicRestaurante.png" alt="Landing Page Restaurante">
+                    </div>
+                    <div class="project-info">
+                        <h3>Landing Page Restaurante</h3>
+                        <p>Site demonstrativo profissional, focado em alta conversão e design moderno.</p>
+
+                        <div class="service-details">
+                            <div class="offer-item">
+                                <i class="fa-solid fa-rocket"></i>
+                                <span><strong>Criação:</strong> Landing page completa e pronta para uso por um valor a
+                                    combinar.</span>
+                            </div>
+                            <div class="offer-item">
+                                <i class="fa-solid fa-rotate"></i>
+                                <span><strong>Manutenção:</strong> Pacote mensal para atualizações de cardápio e
+                                    melhorias contínuas (valor a combinar).</span>
+                            </div>
+                        </div>
+
+                        <div class="tags">
+                            <span>#HTML</span><span>#CSS</span><span>#JS</span>
+                        </div>
+
+                        <a href="https://landing-page-restaurante.netlify.app" target="_blank" class="btn-link">Ver
+                            Projeto <i class="fa-solid fa-chevron-right"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="contact" class="animated-section">
+            <h2>Vamos conversar?</h2>
+            <div class="contact-content">
+                <div class="contact-text">
+                    <p>Estou aberta a novas oportunidades, projetos e conexões. Clique no botão abaixo para falarmos
+                        diretamente!</p>
+                </div>
+
+                <button id="whatsapp-action" class="whatsapp-btn">
+                    <i class="fab fa-whatsapp"></i> Conversar no WhatsApp
+                </button>
+
+                <div class="social-links">
+                    <a href="https://instagram.com/maduaperes" target="_blank" title="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+
+                    <a href="https://facebook.com/SEU_USUARIO" target="_blank" title="Facebook">
+                        <i class="fab fa-facebook"></i>
+                    </a>
+
+                    <a href="mailto:seuemail@exemplo.com" title="Enviar um E-mail">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+
+                    <a href="https://github.com/maduaperes" target="_blank" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="footer">
+        <p>&copy; 2026 Madu Peres. Desenvolvido com <i class="fa-solid fa-heart"></i> e café.</p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://unpkg.com/scrollreveal"></script>
+    <script src="js/animations.js"></script>
+</body>
+
+</html>

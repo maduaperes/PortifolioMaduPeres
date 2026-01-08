@@ -1,0 +1,27 @@
+.graphic-element {
+    position: absolute;
+    font-size: 2.5rem;
+    color: rgba(255, 107, 107, 0.15);
+    z-index: -1;
+    animation: floating 5s ease-in-out infinite;
+}
+
+.top-left { top: 15%; left: 10%; }
+.bottom-right { bottom: 15%; right: 10%; animation-delay: 2s; }
+.mid-right { top: 45%; right: 15%; animation-delay: 1s; }
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.code-bg {
+    position: absolute;
+    font-size: 8rem;
+    font-weight: 900;
+    color: rgba(0,0,0,0.02);
+    z-index: -2;
+    white-space: nowrap;
+    top: 50%;
+    transform: translateY(-50%);
+}
