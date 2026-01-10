@@ -11,24 +11,27 @@ $(document).ready(function () {
             setTimeout(typeWriter, 100);
         }
     }
+    // Inicia o efeito
     typeWriter();
 
-    // 2. MENU MOBILE TOGGLE
+    // 2. MENU MOBILE TOGGLE (Ajustado para não quebrar o ::marker)
     $('#mobile-menu-toggle').on('click', function () {
-        $('#mobile-menu').slideToggle().css('display', 'flex');
+        // Usamos slideToggle sem forçar 'flex', assim o CSS controla o display: list-item
+        $('#mobile-menu').slideToggle();
         $(this).find('i').toggleClass('fa-bars fa-xmark');
     });
 
-    // Fecha o menu ao clicar em um link
-    $('#mobile-menu a, .nav-list a').on('click', function () {
+    // Fecha o menu ao clicar em um link (Melhorado)
+    $('#mobile-menu a').on('click', function () {
         if ($(window).width() <= 768) {
-            $('#mobile-menu').hide();
+            $('#mobile-menu').slideUp();
             $('#mobile-menu-toggle i').addClass('fa-bars').removeClass('fa-xmark');
         }
     });
 
-    // 3. AÇÃO DO BOTÃO WHATSAPP (NÚMERO 15996514120)
-    $('#whatsapp-action').on('click', function() {
+    // 3. AÇÃO DO BOTÃO WHATSAPP
+    $('#whatsapp-action').on('click', function(e) {
+        e.preventDefault();
         const phoneNumber = "5515996514120";
         const message = encodeURIComponent("Olá Madu, vi seu portfólio e gostaria de conversar!");
         const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
@@ -36,7 +39,7 @@ $(document).ready(function () {
     });
 
     // 4. MUDAR HEADER NO SCROLL
-    $(window).scroll(function() {
+    $(window).on('scroll', function() {
         if ($(this).scrollTop() > 50) {
             $('#header').addClass('scrolled');
         } else {
@@ -44,16 +47,22 @@ $(document).ready(function () {
         }
     });
 
-    // 5. SCROLL SUAVE PARA LINKS INTERNOS
+    // 5. SCROLL SUAVE PARA LINKS INTERNOS (CORRIGIDO PARA O #HOME)
     $('a[href^="#"]').on('click', function (e) {
         e.preventDefault();
         const id = $(this).attr('href');
-        if (id === '#') return;
         
-        const targetOffset = $(id).offset().top;
+        if (id === '#') return;
 
-        $('html, body').animate({
-            scrollTop: targetOffset - 80 
+        // Se o link for #home ou se o elemento não for encontrado, vai para o topo (0)
+        // Caso contrário, calcula a posição do elemento com desconto do header
+        let targetOffset = 0;
+        if (id !== '#home' && $(id).length > 0) {
+            targetOffset = $(id).offset().top - 80;
+        }
+
+        $('html, body').stop().animate({
+            scrollTop: targetOffset
         }, 800);
     });
 
@@ -66,13 +75,10 @@ $(document).ready(function () {
         reset: false 
     });
 
-    // Revelações específicas
-    sr.reveal('.hero-section .content', { delay: 200 });
-    sr.reveal('.graphic-element', { delay: 400, distance: '100px', interval: 200 });
+    sr.reveal('.hero-section', { delay: 200 });
     sr.reveal('.about-text', { origin: 'left', delay: 300 });
     sr.reveal('.profile-pic', { origin: 'right', delay: 500 });
     sr.reveal('.skill-item', { interval: 150, origin: 'bottom' });
     sr.reveal('.project-card', { interval: 200, scale: 0.9 });
     sr.reveal('.contact-content', { delay: 200, origin: 'bottom' });
-    sr.reveal('.social-links a', { interval: 200, delay: 400 });
 });
