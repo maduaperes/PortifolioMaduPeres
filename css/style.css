@@ -130,16 +130,32 @@ h2 {
 
 .code-bg {
     position: absolute;
-    right: -20px;
-    z-index: -1;
-    opacity: 0.05;
-    white-space: nowrap;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    font-family: var(--font-code);
+    font-size: 10vw;
+    font-weight: 900;
+
+    color: red;
+    /* 🔥 TESTE */
+    opacity: 1;
+    /* 🔥 TESTE */
+    z-index: 1;
+    /* 🔥 TESTE */
+
     pointer-events: none;
+    white-space: nowrap;
 }
 
 .hero-section h1 {
     font-size: 3.5rem;
     margin-bottom: 15px;
+}
+
+.hero-section .content {
+    position: relative;
+    z-index: 2;
 }
 
 .hero-section p {
@@ -374,61 +390,88 @@ h2 {
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
 }
 
-@media (max-width: 1280px) {
-    /* 1. RESTAURANDO O FUNDO (opcional: manter visível mas ajustado) */
-    .code-bg {
-        display: block; 
-        font-size: 12vw;
-        opacity: 0.03;
-    }
+@media screen and (min-width: 1025px) {
 
-    /* 2. GRID DE SKILLS (Padrão 3 ou 4 colunas para Desktop) */
-    .skills-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
-        gap: 25px;
-    }
-
-    /* 3. HERO SECTION (Mantendo altura total para Desktop) */
     .hero-section {
-        height: 100vh;
-        padding-bottom: 0;
-    }
-
-    /* 4. SOBRE (RESTAURANDO LADO A LADO) */
-    .about-container {
-        flex-direction: row; /* Volta a ficar um ao lado do outro */
-        text-align: left;    /* Texto alinhado à esquerda */
-        align-items: center;
-        gap: 50px;
-    }
-
-    /* 5. HEADER (Links com tamanho padrão) */
-    .nav-list {
+        position: relative;
         display: flex;
-        gap: 30px;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
     }
 
-    .nav-list a {
-        font-size: 1rem;
+    .code-bg {
+        position: absolute;
+        top: 50%;
+        right: -5%;
+        transform: translate(50%, -50%);
+        font-size: clamp(4rem, 10vw, 8rem);
+        font-weight: 900;
+        color: rgba(0, 0, 0, 0.08);
+        z-index: 0;
+        white-space: nowrap;
+        pointer-events: none;
+        overflow: visible;
     }
 
-    /* 6. TEXTO HERO */
-    .hero-section h1 {
-        font-size: 3.5rem;
+    /* Garantimos que o conteúdo fique visível acima de tudo */
+    .hero-section .content {
+        position: relative;
+        z-index: 2;
     }
 
-    /* Escondendo elementos mobile que não devem aparecer aqui */
-    #mobile-menu-toggle, #mobile-menu {
+    /* 2. SKILLS: TODAS EM UMA LINHA SÓ */
+    .skills-grid {
+        display: flex !important;
+        flex-direction: row !important;
+        flex-wrap: nowrap !important;
+        justify-content: space-between;
+        gap: 20px;
+        width: 100%;
+        margin-top: 40px;
+    }
+
+    .skill-item {
+        flex: 1;
+        padding: 30px 10px;
+        min-width: 0;
+    }
+
+    /* 3. SOBRE: FOTO MAIOR À DIREITA */
+    .about-container {
+        display: flex !important;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-between;
+        gap: 80px;
+        text-align: left !important;
+    }
+
+    .about-text {
+        flex: 1.2;
+    }
+
+    .profile-pic {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .profile-pic img {
+        width: 450px !important;
+        max-width: 100%;
+        height: auto;
+        border-radius: 10px;
+    }
+
+    /* 4. ESCONDER MENU MOBILE */
+    #mobile-menu-toggle,
+    #mobile-menu {
         display: none !important;
     }
 }
 
 @media (max-width: 1024px) {
-
-    .code-bg {
-        display: none;
-    }
 
     .skills-grid {
         display: grid;
@@ -499,10 +542,6 @@ h2 {
 }
 
 @media (max-width: 768px) {
-
-    .code-bg {
-        display: none;
-    }
 
     /* --- 1. AJUSTE PARA COLAR NO TOPO --- */
     .hero-section {
