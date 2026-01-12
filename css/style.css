@@ -130,22 +130,15 @@ h2 {
 
 .code-bg {
     position: absolute;
-    top: 50%;
-    right: 0;
-    transform: translateY(-50%);
-    font-family: var(--font-code);
-    font-size: 10vw;
-    font-weight: 900;
-
-    color: red;
-    /* 🔥 TESTE */
-    opacity: 1;
-    /* 🔥 TESTE */
-    z-index: 1;
-    /* 🔥 TESTE */
-
-    pointer-events: none;
-    white-space: nowrap;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 110px;
+    font-weight: 600;
+    z-index: -1;
+    color: #1e1e1e62;
+    opacity: 0.1;
 }
 
 .hero-section h1 {
@@ -400,20 +393,6 @@ h2 {
         overflow: hidden;
     }
 
-    .code-bg {
-        position: absolute;
-        top: 50%;
-        right: -5%;
-        transform: translate(50%, -50%);
-        font-size: clamp(4rem, 10vw, 8rem);
-        font-weight: 900;
-        color: rgba(0, 0, 0, 0.08);
-        z-index: 0;
-        white-space: nowrap;
-        pointer-events: none;
-        overflow: visible;
-    }
-
     /* Garantimos que o conteúdo fique visível acima de tudo */
     .hero-section .content {
         position: relative;
@@ -616,8 +595,13 @@ h2 {
 }
 
 @media (max-width: 480px) {
+
+    .code-bg {
+        top: 50%;
+        font-size: 45px;
+    }
+
     #mobile-menu {
-        display: none;
         padding: 40px;
         list-style-type: disc;
     }

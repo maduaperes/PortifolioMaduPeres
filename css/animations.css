@@ -14,14 +14,3 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-20px); }
 }
-
-.code-bg {
-    position: absolute;
-    font-size: 8rem;
-    font-weight: 900;
-    color: rgba(0,0,0,0.02);
-    z-index: -2;
-    white-space: nowrap;
-    top: 50%;
-    transform: translateY(-50%);
-}
