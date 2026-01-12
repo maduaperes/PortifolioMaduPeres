@@ -452,6 +452,10 @@ h2 {
 
 @media (max-width: 1024px) {
 
+    .code-bg {
+        font-size: 95px;
+    }
+
     .skills-grid {
         display: grid;
         /* Força exatamente duas colunas por linha */
@@ -493,16 +497,6 @@ h2 {
         /* Diminui levemente a fonte para não quebrar linha */
     }
 
-    #mobile-menu-toggle {
-        display: none !important;
-        /* Esconde o ícone de hambúrguer */
-    }
-
-    #mobile-menu {
-        display: none !important;
-        /* Garante que o menu mobile não apareça */
-    }
-
     /* --- 3. RESTANTE DO LAYOUT --- */
     .about-container {
         flex-direction: column-reverse;
@@ -521,6 +515,10 @@ h2 {
 }
 
 @media (max-width: 768px) {
+
+    .code-bg {
+        font-size: 70px;
+    }
 
     /* --- 1. AJUSTE PARA COLAR NO TOPO --- */
     .hero-section {
@@ -544,6 +542,7 @@ h2 {
     /* --- 2. MENU E OUTROS ESTILOS (SEU CÓDIGO) --- */
     .nav-list {
         display: none;
+        /* Oculta a lista de links */
     }
 
     #mobile-menu-toggle {
@@ -596,16 +595,43 @@ h2 {
 
 @media (max-width: 480px) {
 
+    /* Texto de fundo da hero */
     .code-bg {
         top: 50%;
         font-size: 45px;
     }
 
-    #mobile-menu {
-        padding: 40px;
-        list-style-type: disc;
+    /* BOTÃO HAMBÚRGUER VISÍVEL */
+    #mobile-menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-dark);
+        z-index: 1100;
     }
 
+    /* MENU MOBILE FECHADO POR PADRÃO */
+    #mobile-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 30px 40px;
+        background: #fff;
+        list-style-type: disc;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    /* MENU ABERTO (classe via JS) */
+    #mobile-menu.active {
+        display: block;
+    }
+
+    /* ITENS DO MENU */
     #mobile-menu li {
         display: list-item;
         margin-bottom: 15px;
@@ -619,6 +645,7 @@ h2 {
         font-size: 1.2rem;
     }
 
+    /* LINKS */
     #mobile-menu a {
         text-decoration: none;
         color: var(--color-dark);

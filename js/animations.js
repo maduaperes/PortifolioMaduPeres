@@ -1,5 +1,6 @@
 $(document).ready(function () {
-    // 1. EFEITO DE DIGITAÇÃO (TYPEWRITER)
+
+    /* 1. TYPEWRITER */
     const text = "Desenvolvedora Web Front-End Jr.";
     let i = 0;
     const typewriterElement = document.getElementById("typewriter-text");
@@ -11,68 +12,66 @@ $(document).ready(function () {
             setTimeout(typeWriter, 100);
         }
     }
-    // Inicia o efeito
     typeWriter();
 
-    // 2. MENU MOBILE TOGGLE (Ajustado para não quebrar o ::marker)
+
+    /* 2. MENU MOBILE (CORRETO, SEM slideToggle) */
     $('#mobile-menu-toggle').on('click', function () {
-        // Usamos slideToggle sem forçar 'flex', assim o CSS controla o display: list-item
-        $('#mobile-menu').slideToggle();
+        $('#mobile-menu').toggleClass('active');
         $(this).find('i').toggleClass('fa-bars fa-xmark');
     });
 
-    // Fecha o menu ao clicar em um link (Melhorado)
+    /* Fecha menu ao clicar em um link */
     $('#mobile-menu a').on('click', function () {
         if ($(window).width() <= 768) {
-            $('#mobile-menu').slideUp();
-            $('#mobile-menu-toggle i').addClass('fa-bars').removeClass('fa-xmark');
+            $('#mobile-menu').removeClass('active');
+            $('#mobile-menu-toggle i')
+                .addClass('fa-bars')
+                .removeClass('fa-xmark');
         }
     });
 
-    // 3. AÇÃO DO BOTÃO WHATSAPP
-    $('#whatsapp-action').on('click', function(e) {
+
+    /* 3. BOTÃO WHATSAPP */
+    $('#whatsapp-action').on('click', function (e) {
         e.preventDefault();
         const phoneNumber = "5515996514120";
-        const message = encodeURIComponent("Olá Madu, vi seu portfólio e gostaria de conversar!");
-        const whatsappUrl = `https://wa.me/${phoneNumber}?text=${message}`;
-        window.open(whatsappUrl, '_blank');
+        const message = encodeURIComponent(
+            "Olá Madu, vi seu portfólio e gostaria de conversar!"
+        );
+        window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     });
 
-    // 4. MUDAR HEADER NO SCROLL
-    $(window).on('scroll', function() {
-        if ($(this).scrollTop() > 50) {
-            $('#header').addClass('scrolled');
-        } else {
-            $('#header').removeClass('scrolled');
-        }
+
+    /* 4. HEADER SCROLL */
+    $(window).on('scroll', function () {
+        $('#header').toggleClass('scrolled', $(this).scrollTop() > 50);
     });
 
-    // 5. SCROLL SUAVE PARA LINKS INTERNOS (CORRIGIDO PARA O #HOME)
+
+    /* 5. SCROLL SUAVE */
     $('a[href^="#"]').on('click', function (e) {
-        e.preventDefault();
         const id = $(this).attr('href');
-        
         if (id === '#') return;
 
-        // Se o link for #home ou se o elemento não for encontrado, vai para o topo (0)
-        // Caso contrário, calcula a posição do elemento com desconto do header
-        let targetOffset = 0;
-        if (id !== '#home' && $(id).length > 0) {
-            targetOffset = $(id).offset().top - 80;
+        e.preventDefault();
+
+        let offset = 0;
+        if (id !== '#home' && $(id).length) {
+            offset = $(id).offset().top - 80;
         }
 
-        $('html, body').stop().animate({
-            scrollTop: targetOffset
-        }, 800);
+        $('html, body').animate({ scrollTop: offset }, 800);
     });
 
-    // 6. ANIMAÇÕES DE REVELAÇÃO (SCROLLREVEAL)
+
+    /* 6. SCROLL REVEAL */
     const sr = ScrollReveal({
         origin: 'top',
         distance: '50px',
         duration: 1500,
         delay: 200,
-        reset: false 
+        reset: false
     });
 
     sr.reveal('.hero-section', { delay: 200 });
@@ -81,4 +80,5 @@ $(document).ready(function () {
     sr.reveal('.skill-item', { interval: 150, origin: 'bottom' });
     sr.reveal('.project-card', { interval: 200, scale: 0.9 });
     sr.reveal('.contact-content', { delay: 200, origin: 'bottom' });
+
 });
