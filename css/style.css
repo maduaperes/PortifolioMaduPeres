@@ -416,7 +416,6 @@ h2 {
         min-width: 0;
     }
 
-    /* 3. SOBRE: FOTO MAIOR À DIREITA */
     .about-container {
         display: flex !important;
         flex-direction: row !important;
@@ -443,7 +442,6 @@ h2 {
         border-radius: 10px;
     }
 
-    /* 4. ESCONDER MENU MOBILE */
     #mobile-menu-toggle,
     #mobile-menu {
         display: none !important;
@@ -458,13 +456,10 @@ h2 {
 
     .skills-grid {
         display: grid;
-        /* Força exatamente duas colunas por linha */
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
 
-    /* Opcional: Se você quiser que os itens não fiquem largos demais em tablets, 
-       pode limitar a largura do grid ou aumentar o gap */
     .skill-item {
         padding: 25px;
     }
@@ -484,20 +479,15 @@ h2 {
         margin-bottom: 20px;
     }
 
-    /* --- 2. HEADER DESKTOP MANTIDO --- */
     .nav-list {
         display: flex;
-        /* Garante que a lista continue visível */
         gap: 15px;
-        /* Reduz um pouco o espaço entre links para caber na tela */
     }
 
     .nav-list a {
         font-size: 0.9rem;
-        /* Diminui levemente a fonte para não quebrar linha */
     }
 
-    /* --- 3. RESTANTE DO LAYOUT --- */
     .about-container {
         flex-direction: column-reverse;
         text-align: center;
@@ -520,29 +510,23 @@ h2 {
         font-size: 70px;
     }
 
-    /* --- 1. AJUSTE PARA COLAR NO TOPO --- */
     .hero-section {
         height: auto;
         min-height: 100vh;
         padding-bottom: 20px;
-        /* Reduz o respiro inferior da Hero */
     }
 
     #about {
         padding-top: 0;
-        /* Remove o espaço superior da seção About */
     }
 
     #about h2 {
         margin-top: 0;
         margin-bottom: 20px;
-        /* Espaço entre título e conteúdo */
     }
 
-    /* --- 2. MENU E OUTROS ESTILOS (SEU CÓDIGO) --- */
     .nav-list {
         display: none;
-        /* Oculta a lista de links */
     }
 
     #mobile-menu-toggle {
@@ -551,7 +535,6 @@ h2 {
 
     #mobile-menu li {
         display: list-item;
-        /* Garante que o marcador apareça */
         margin-left: 20px;
     }
 
@@ -579,12 +562,10 @@ h2 {
         flex-direction: column-reverse;
         text-align: center;
         gap: 20px;
-        /* Reduz o espaço entre foto e texto no mobile */
     }
 
     .hero-section h1 {
         font-size: 2.2rem;
-        /* Leve redução para caber melhor */
     }
 
     .whatsapp-btn {
@@ -595,13 +576,11 @@ h2 {
 
 @media (max-width: 480px) {
 
-    /* Texto de fundo da hero */
     .code-bg {
         top: 50%;
         font-size: 45px;
     }
 
-    /* BOTÃO HAMBÚRGUER VISÍVEL */
     #mobile-menu-toggle {
         display: block;
         font-size: 1.8rem;
@@ -612,7 +591,6 @@ h2 {
         z-index: 1100;
     }
 
-    /* MENU MOBILE FECHADO POR PADRÃO */
     #mobile-menu {
         display: none;
         position: fixed;
@@ -626,12 +604,10 @@ h2 {
         z-index: 1000;
     }
 
-    /* MENU ABERTO (classe via JS) */
     #mobile-menu.active {
         display: block;
     }
 
-    /* ITENS DO MENU */
     #mobile-menu li {
         display: list-item;
         margin-bottom: 15px;
@@ -645,7 +621,68 @@ h2 {
         font-size: 1.2rem;
     }
 
-    /* LINKS */
+    #mobile-menu a {
+        text-decoration: none;
+        color: var(--color-dark);
+        font-weight: 500;
+        font-size: 1.2rem;
+        transition: 0.3s;
+        display: inline-block;
+    }
+
+    #mobile-menu a:hover {
+        color: var(--color-primary);
+        transform: translateX(5px);
+    }
+}
+
+@media (max-width: 390px) {
+
+    .code-bg {
+        top: 50%;
+        font-size: 35px;
+    }
+
+    #mobile-menu-toggle {
+        display: block;
+        font-size: 1.8rem;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--color-dark);
+        z-index: 1100;
+    }
+
+    #mobile-menu {
+        display: none;
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 30px 40px;
+        background: #fff;
+        list-style-type: disc;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    #mobile-menu.active {
+        display: block;
+    }
+
+    #mobile-menu li {
+        display: list-item;
+        margin-bottom: 15px;
+        margin-left: 20px;
+        color: var(--color-primary);
+    }
+
+    #mobile-menu li::marker {
+        content: '▹';
+        color: var(--color-primary);
+        font-size: 1.2rem;
+    }
+
     #mobile-menu a {
         text-decoration: none;
         color: var(--color-dark);
