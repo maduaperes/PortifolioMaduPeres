@@ -1,6 +1,8 @@
 $(document).ready(function () {
 
-    /* 1. TYPEWRITER */
+    /* ==================================================
+       1. TYPEWRITER
+    ================================================== */
     const text = "Desenvolvedora Web Front-End Jr.";
     let i = 0;
     const typewriterElement = document.getElementById("typewriter-text");
@@ -15,7 +17,9 @@ $(document).ready(function () {
     typeWriter();
 
 
-    /* 2. MENU MOBILE (CORRETO, SEM slideToggle) */
+    /* ==================================================
+       2. MENU MOBILE (SEM slideToggle — FLUIDO)
+    ================================================== */
     $('#mobile-menu-toggle').on('click', function () {
         $('#mobile-menu').toggleClass('active');
         $(this).find('i').toggleClass('fa-bars fa-xmark');
@@ -32,7 +36,9 @@ $(document).ready(function () {
     });
 
 
-    /* 3. BOTÃO WHATSAPP */
+    /* ==================================================
+       3. BOTÃO WHATSAPP
+    ================================================== */
     $('#whatsapp-action').on('click', function (e) {
         e.preventDefault();
         const phoneNumber = "5515996514120";
@@ -43,29 +49,50 @@ $(document).ready(function () {
     });
 
 
-    /* 4. HEADER SCROLL */
+    /* ==================================================
+       4. HEADER SCROLL
+    ================================================== */
     $(window).on('scroll', function () {
         $('#header').toggleClass('scrolled', $(this).scrollTop() > 50);
     });
 
 
-    /* 5. SCROLL SUAVE */
+    /* ==================================================
+       5. SCROLL SUAVE (LISO NO MOBILE)
+    ================================================== */
     $('a[href^="#"]').on('click', function (e) {
         const id = $(this).attr('href');
         if (id === '#') return;
 
         e.preventDefault();
 
+        const isMobile = $(window).width() <= 768;
+
+        // Fecha menu mobile antes de rolar
+        if (isMobile) {
+            $('#mobile-menu').removeClass('active');
+            $('#mobile-menu-toggle i')
+                .addClass('fa-bars')
+                .removeClass('fa-xmark');
+        }
+
         let offset = 0;
         if (id !== '#home' && $(id).length) {
             offset = $(id).offset().top - 80;
         }
 
-        $('html, body').animate({ scrollTop: offset }, 800);
+        // Aguarda o fechamento do menu antes de rolar
+        setTimeout(() => {
+            $('html, body')
+                .stop(true)
+                .animate({ scrollTop: offset }, 600, 'swing');
+        }, isMobile ? 250 : 0);
     });
 
 
-    /* 6. SCROLL REVEAL */
+    /* ==================================================
+       6. SCROLL REVEAL (OTIMIZADO)
+    ================================================== */
     const sr = ScrollReveal({
         origin: 'top',
         distance: '50px',
