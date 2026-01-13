@@ -1,9 +1,8 @@
 $(document).ready(function () {
 
-    /* ==================================================
-       1. TYPEWRITER
-       (leve, sem impacto de performance)
-    ================================================== */
+    /* ===============================
+       TYPEWRITER
+    =============================== */
     const text = "Desenvolvedora Web Front-End Jr.";
     let i = 0;
     const typewriterElement = document.getElementById("typewriter-text");
@@ -17,34 +16,33 @@ $(document).ready(function () {
     typeWriter();
 
 
-    /* ==================================================
-       2. MENU MOBILE (ULTRA FLUIDO)
-    ================================================== */
+    /* ===============================
+       MENU MOBILE
+    =============================== */
     const $mobileMenu = $('#mobile-menu');
     const $menuToggle = $('#mobile-menu-toggle');
     const $menuIcon = $('#mobile-menu-toggle i');
-
-    $menuToggle.on('click', function () {
-        $mobileMenu.toggleClass('active');
-        $menuIcon.toggleClass('fa-bars fa-xmark');
-    });
-
-    // Fecha menu ao clicar em link
-    $('#mobile-menu a').on('click', function () {
-        if (window.innerWidth <= 768) {
-            closeMobileMenu();
-        }
-    });
 
     function closeMobileMenu() {
         $mobileMenu.removeClass('active');
         $menuIcon.addClass('fa-bars').removeClass('fa-xmark');
     }
 
+    $menuToggle.on('click', function () {
+        $mobileMenu.toggleClass('active');
+        $menuIcon.toggleClass('fa-bars fa-xmark');
+    });
 
-    /* ==================================================
-       3. SCROLL SUAVE NATIVO (SEM TRAVAR)
-    ================================================== */
+    $('#mobile-menu a').on('click', function () {
+        if (window.innerWidth <= 768) {
+            closeMobileMenu();
+        }
+    });
+
+
+    /* ===============================
+       SCROLL SUAVE (CORRIGIDO MOBILE)
+    =============================== */
     $('a[href^="#"]').on('click', function (e) {
         const id = this.getAttribute('href');
         if (id === '#') return;
@@ -56,26 +54,38 @@ $(document).ready(function () {
 
         const isMobile = window.innerWidth <= 768;
         const headerOffset = 80;
-        const elementPosition = target.getBoundingClientRect().top;
-        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
         if (isMobile) {
             closeMobileMenu();
         }
 
-        // espera o menu fechar antes de rolar (mobile real)
         setTimeout(() => {
+
+            // ✅ CORREÇÃO ESPECÍFICA PARA HOME
+            if (id === '#home') {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+                return;
+            }
+
+            const elementPosition = target.getBoundingClientRect().top;
+            const offsetPosition =
+                elementPosition + window.pageYOffset - headerOffset;
+
             window.scrollTo({
                 top: offsetPosition,
                 behavior: 'smooth'
             });
-        }, isMobile ? 220 : 0);
+
+        }, isMobile ? 250 : 0);
     });
 
 
-    /* ==================================================
-       4. HEADER SCROLL (LEVE)
-    ================================================== */
+    /* ===============================
+       HEADER SCROLL
+    =============================== */
     const header = document.getElementById('header');
 
     window.addEventListener('scroll', () => {
@@ -83,23 +93,24 @@ $(document).ready(function () {
     }, { passive: true });
 
 
-    /* ==================================================
-       5. BOTÃO WHATSAPP
-    ================================================== */
+    /* ===============================
+       WHATSAPP
+    =============================== */
     $('#whatsapp-action').on('click', function (e) {
         e.preventDefault();
+
         const phoneNumber = "5515996514120";
         const message = encodeURIComponent(
             "Olá Madu, vi seu portfólio e gostaria de conversar!"
         );
+
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     });
 
 
-    /* ==================================================
-       6. SCROLLREVEAL (CONTROLADO)
-       Evita reflow excessivo no mobile
-    ================================================== */
+    /* ===============================
+       SCROLL REVEAL (DESKTOP ONLY)
+    =============================== */
     if (window.innerWidth > 768) {
         const sr = ScrollReveal({
             origin: 'top',

@@ -638,6 +638,10 @@ h2 {
 
 @media (max-width: 400px) {
 
+    #typewriter-text {
+        font-size: 1.1rem;
+    }
+
     .code-bg {
         top: 50%;
         font-size: 35px;
