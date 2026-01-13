@@ -37,7 +37,7 @@ body {
 
 #header.scrolled {
     background: rgba(255, 255, 255, 0.9);
-    backdrop-filter: blur(10px);
+    backdrop-filter: none;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
 }
 
