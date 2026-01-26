@@ -504,37 +504,40 @@ h2 {
     }
 }
 
+/* --- ESTILOS MOBILE (768px para baixo) --- */
 @media (max-width: 768px) {
-
-    .code-bg {
-        font-size: 70px;
-    }
-
-    .hero-section {
-        height: auto;
-        min-height: 100vh;
-        padding-bottom: 20px;
-    }
-
-    #about {
-        padding-top: 0;
-    }
-
-    #about h2 {
-        margin-top: 0;
-        margin-bottom: 20px;
-    }
-
     .nav-list {
-        display: none;
+        display: none; /* Esconde menu desktop */
     }
 
     #mobile-menu-toggle {
-        display: block;
+        display: block; /* Mostra o botão hambúrguer */
+        font-size: 1.8rem;
+        color: var(--color-dark);
+        z-index: 1100;
+    }
+
+    #mobile-menu {
+        display: none; /* Escondido por padrão */
+        position: fixed;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        padding: 30px 40px;
+        background: #ffffff;
+        list-style-type: none;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+        flex-direction: column;
+    }
+
+    /* Esta classe deve ser adicionada via JS */
+    #mobile-menu.active {
+        display: flex; 
     }
 
     #mobile-menu li {
-        display: list-item;
+        margin-bottom: 15px;
         margin-left: 20px;
     }
 
@@ -558,19 +561,14 @@ h2 {
         transform: translateX(5px);
     }
 
-    .about-container {
-        flex-direction: column-reverse;
-        text-align: center;
-        gap: 20px;
-    }
-
-    .hero-section h1 {
-        font-size: 2.2rem;
-    }
-
-    .whatsapp-btn {
-        padding: 15px 30px;
-        font-size: 1rem;
+    /* Ajustes menores apenas para telas muito pequenas */
+    @media (max-width: 480px) {
+        .code-bg {
+            font-size: 45px;
+        }
+        #mobile-menu {
+            padding: 20px;
+        }
     }
 }
 
