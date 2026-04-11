@@ -3,7 +3,7 @@ $(document).ready(function () {
     /* ===============================
        TYPEWRITER
     =============================== */
-    const text = "Desenvolvedora Web Front-End Jr.";
+    const text = "Desenvolvedora Full Stack Jr.";
     let i = 0;
     const typewriterElement = document.getElementById("typewriter-text");
 
@@ -61,7 +61,6 @@ $(document).ready(function () {
 
         setTimeout(() => {
 
-            // ✅ CORREÇÃO ESPECÍFICA PARA HOME
             if (id === '#home') {
                 window.scrollTo({
                     top: 0,
@@ -106,6 +105,28 @@ $(document).ready(function () {
 
         window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
     });
+
+
+    /* ===============================
+       LER MAIS (APENAS MOBILE)
+    =============================== */
+    if (window.innerWidth <= 768) {
+
+        const btn = document.getElementById('read-more-btn');
+        const bio = document.getElementById('bio-text');
+
+        if (btn && bio) {
+            btn.addEventListener('click', () => {
+                bio.classList.toggle('expanded');
+
+                if (bio.classList.contains('expanded')) {
+                    btn.textContent = 'Ler menos';
+                } else {
+                    btn.textContent = 'Ler mais';
+                }
+            });
+        }
+    }
 
 
     /* ===============================
