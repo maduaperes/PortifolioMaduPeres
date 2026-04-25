@@ -677,6 +677,7 @@ h2 {
     max-height: 180px;
     overflow: hidden;
     position: relative;
+    text-align: left;
     transition: max-height 0.3s ease;
   }
 
@@ -684,7 +685,6 @@ h2 {
     max-height: 1000px;
   }
 
-  /* EFEITO DE OFUSCADO */
   #bio-text::after {
     content: "";
     position: absolute;
@@ -695,7 +695,6 @@ h2 {
     background: linear-gradient(to bottom, transparent, white);
   }
 
-  /* REMOVE O FADE QUANDO EXPANDE */
   #bio-text.expanded::after {
     display: none;
   }
@@ -799,6 +798,100 @@ h2 {
   #mobile-menu a:hover {
     color: var(--color-primary);
     transform: translateX(5px);
+  }
+
+  #projects {
+    padding: 20px 10px;
+  }
+
+  #projects h2 {
+    font-size: 2.2rem;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    text-align: center;
+  }
+
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .project-card {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    word-wrap: break-word; /* evita overflow de texto */
+    overflow-wrap: break-word;
+  }
+
+  .project-header {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .project-body {
+    padding: 12px;
+  }
+
+  .project-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .project-services {
+    font-size: 0.85rem;
+    margin-bottom: 12px;
+    text-align: center;
+  }
+
+  .service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 8px;
+    flex-wrap: wrap; /* evita quebra feia */
+  }
+
+  .service-item strong,
+  .service-item i {
+    font-size: 0.85rem;
+    text-align: center;
+    width: 100%;
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    justify-content: center;
+  }
+
+  .project-tags span {
+    font-size: 0.75rem;
+    padding: 4px 8px;
+    border-radius: 15px;
+    white-space: nowrap; /* mantém cada tag em uma linha só */
+  }
+
+  .project-footer {
+    padding: 12px;
+    text-align: center;
+  }
+
+  .btn-link {
+    font-size: 0.85rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    white-space: nowrap; /* evita quebra no botão */
   }
 }
 
