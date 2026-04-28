@@ -15,6 +15,27 @@ $(document).ready(function () {
   typeWriter();
 
   /* ===============================
+     TEMA ESCURO / CLARO
+  =============================== */
+  const toggleBtn = document.getElementById("theme-toggle");
+  const themeIcon = document.getElementById("theme-icon");
+
+  const saved = localStorage.getItem("theme");
+  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  applyTheme(saved || (prefersDark ? "dark" : "light"));
+
+  toggleBtn.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    applyTheme(current === "dark" ? "light" : "dark");
+  });
+
+  function applyTheme(theme) {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+    themeIcon.className = theme === "dark" ? "fas fa-sun" : "fas fa-moon";
+  }
+
+  /* ===============================
      MENU MOBILE
   =============================== */
   const $mobileMenu = $("#mobile-menu");
